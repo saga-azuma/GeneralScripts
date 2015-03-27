@@ -12,8 +12,10 @@ namespace eval OrePropMaiIdTagOnElem {
 proc OrePropMaiIdTagOnElem::message args {
   variable mes;
   variable var;
+  variable env;
   # If LANG contains ja_JP, then Japanese message
   # else, English message.
+  if {[catch {set var(lang) $::env(LANG)} ]} {set var(lang) C}
   switch -g $var(lang) {
     ja_JP* {
       set mes(1) "もう起動してます"
@@ -142,6 +144,6 @@ proc OrePropMaiIdTagOnElem::select args {
   wm deiconify $win(base);
   focus $win(base)
 }
-if {[catch {set OrePropMaiIdTagOnElem::var(lang) $env(LANG)} ]} {set OrePropMaiIdTagOnElem::var(lang) C}
+
 OrePropMaiIdTagOnElem::message
 OrePropMaiIdTagOnElem::main
