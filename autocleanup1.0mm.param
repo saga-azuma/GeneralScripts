@@ -1,0 +1,159 @@
+#This Param file was created with Criteria/Param Editor application
+
+#flags:
+
+geometry_cleanup_flag             1
+meshing_flag                      5
+
+#mesh:
+
+element_size                      1
+element_type                      2
+mesh_align                        3
+element_order                     1
+surf_component                    0
+feature_angle                     30.0
+
+# Holes Design Table:
+
+holes_table_begin
+
+# General switches:
+
+appl_surf(1)
+appl_solid(1)
+appl_cordsfiles(0)
+appl_flanged_suppr(1)
+flanged_suppr_height(2)
+narrow_slots_type(0)
+abs_fixed_nodes_count_max(-8)
+
+# holes design records: 
+
+
+rad(0.0,0.4) do action(1) washer(0) 
+rad(0.4,3) do action(0) elems(5) washer(1) layers(auto,auto) 
+
+rad(0.0,0.4) solid(1) do action(1) 
+rad(0.4,3) solid(1) do action(0) elems(5) 
+
+holes_table_end
+
+#edge fillets:
+
+edge_fillet_recognition           1
+max_fillet_radius                 0.9
+
+#surface fillets:
+
+surface_fillet_table_begin
+
+surface_fillet_recognition(1)
+minimize_transitions(1)
+
+rad(0.04,0.4) do elems(1)
+rad(0.4,2.4) do elems(2)
+
+surface_fillet_table_end
+
+#delete duplicates:
+
+del_dupl_surfs_flag               2
+del_dupl_surfs_tol                -1
+
+#edges stitch:
+
+edges_stitch_flags                0
+max_edges_stitch_tol              -1.0
+
+#fix overlapping surfs:
+
+fix_overlapsurfs_flag             1
+overlapsurfs_maxtangangle         -1.0
+
+#narrow surfaces:
+
+narrow_surfs_merge_width          -1.0
+narrow_surfs_treat_flags          0
+
+#beads:
+
+beads_suppression                 1
+beads_recognition                 1
+minimal_beads_height              0.18
+
+#capture beads axis
+beads_treat_flags                 0
+
+#flanges:
+
+flange_recognition                0
+flange_elements_across            3
+flange_max_width                  4.0
+flange_min_width                  0.7
+flanges_treat_flags               1
+flange_max_remove_width           -1.0
+
+#tria_reduction:
+
+appl_tria_reduction               1
+tria_redu_max_elemsize            auto
+tria_redu_min_elemsize            auto
+trias_around_holes                0
+
+#thin solids:
+
+extract_thinsolids                0
+thinsolid_ratio                   0.3
+max_thickness                     1
+extract_feature_angle             25.0
+
+#logo:
+
+remove_logo                       1
+logo_max_size                     30.0
+logo_max_height                   1.1
+logo_min_concavity                2.0
+
+#threads:
+
+threads_removal                   0
+threads_toremove_max_depth        0.5
+threads_replacediametertype       -2
+
+#element cleanup:
+
+folded_elems_angle                150.0
+smooth_elems_target               0.2
+fillets_mesh_flow                 0
+
+#smoothing across edges options:
+
+failed_elems_cleanup_flgs         0
+move_nodes_across_feature_edges   1
+featureedge_nodes_moveacross_max  0.1
+move_nodes_across_free_edges      1
+freeedge_nodes_moveacross_max     0.05
+
+#correct warped elements:
+
+move_normal_flag                  0
+move_normal_dist                  0.05
+divide_warped_quads               1
+
+ignore_comps_boundary             1
+gen_topology_prepare_flags        5
+
+# names of special components
+cleanup_comp_flag                 0 
+
+comp_select                        
+
+use_wildcards_for_compsnames      0
+
+cleanup_tolerances                auto
+
+
+
+
+
