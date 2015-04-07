@@ -25,7 +25,7 @@ proc StepCurve::main args {
   set win(base) ".$win(name)";
 
   if { [ winfo exists $win(base) ] } {
-    tk_messageBox -message $mes(1) -type "ok" -icon info -title "Information";
+    tk_messageBox -message "is running"  -type "ok" -icon info -title "Information";
     focus $win(base);
     return;
   }
