@@ -49,14 +49,14 @@ proc RoundCoordBulk::main args {
   switch [hm_getsolver] {
     nastran {}
     optistruct {}
-    default {tk_messageBox -message $mes(1); error "error";}
+    default {tk_messageBox -message $mes(1); return;}
   }
 
   # 桁数を決める
   set var(order) [  hm_getint "Order after the decimal point = " $mes(3) ] 
   if {$var(order) == 0} { set var(order) 3}
   if {$var(order) == 100} { set var(order) 0}
-  if {$var(order) == 99} {tk_messageBox -message $mes(4); error "error";}
+  if {$var(order) == 99} {tk_messageBox -message $mes(4); return;}
 
   # export して新しいファイルを作る
   *retainmarkselections 0
@@ -67,14 +67,15 @@ proc RoundCoordBulk::main args {
 
   if [catch {open $var(file1) r} var(fd)] {
     tk_messageBox -message $mes(2);
-    error "error";
+    return;
   }
 
   # これは新しいファイル
   set var(file2) "$var(srcdir)/RoundCoordBulkjkt3pd5g9zt8l924fg3.fem"
   if [catch {open $var(file2) w} var(fd2)] {
     tk_messageBox -message $mes(2);
-    error "error";
+    close $var(fd);
+    return;
   }
   puts $var(fd2) "begin bulk"
 
@@ -108,7 +109,7 @@ proc RoundCoordBulk::main args {
 
   # include する
   switch [ hm_getstring "y or n" $mes(5) ] {
-    n {    tk_messageBox -message $mes(6); error "canceled";}
+    n {    tk_messageBox -message $mes(6); return;}
     default {}
   }
   *feinputpreserveincludefiles 
