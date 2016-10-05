@@ -1,0 +1,12 @@
+$
+$ Extra Data for RADIOSS from G:/FromOldPC2/OpenData/shiryou/radioss/example_and_document/Tank_Sloshing_Sample_and_Manual/SloshingFin_0000.rad using c:\opt\hw14.0\io\model_readers\feinput\bin\win64\radiossblk.exe.
+$ File Input to HyperMesh on 10-05-2016 15:49:08.
+$
+## File: Inivol_0000.rad, Line: 2 -- The Keyword listed below is currently unsupported
+#---1----|----2----|----3----|----4----|----5----|----6----|----7----|----8----|----9----|---10----|
+#-  1. CONTROL CARDS:
+#---1----|----2----|----3----|----4----|----5----|----6----|----7----|----8----|----9----|---10----|
+/SURF/PLANE/1001/XY Plane, Z=50
+0                   0                     50.
+0                   0                     100.
+
